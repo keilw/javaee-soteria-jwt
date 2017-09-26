@@ -5,7 +5,7 @@ import static javax.ws.rs.core.HttpHeaders.AUTHORIZATION;
 import id.swhp.javaee.jwt.business.security.boundary.JWTStore;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.security.auth.message.AuthException;
+import javax.security.enterprise.AuthenticationException;
 import javax.security.enterprise.AuthenticationStatus;
 import javax.security.enterprise.authentication.mechanism.http.HttpAuthenticationMechanism;
 import javax.security.enterprise.authentication.mechanism.http.HttpMessageContext;
@@ -31,7 +31,7 @@ public class JWTAuthenticationMechanism implements HttpAuthenticationMechanism {
     JWTStore jwtStore;
 
     @Override
-    public AuthenticationStatus validateRequest(HttpServletRequest req, HttpServletResponse res, HttpMessageContext context) throws AuthException {
+    public AuthenticationStatus validateRequest(HttpServletRequest req, HttpServletResponse res, HttpMessageContext context) throws AuthenticationException {
 
         String authorizationHeader = req.getHeader(AUTHORIZATION);
         Credential credential = null;
