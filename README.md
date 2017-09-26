@@ -1,5 +1,5 @@
-# JavaEE JWT Token
-Simple JavaEE REST service secured with Soteria and JWT Token.
+# JavaEE JSON Web Token (JWT)
+Simple JavaEE REST service secured with Soteria and JSON Web Token.
 
 ## Installation
 
@@ -15,8 +15,8 @@ Then deploy into application server.
 
 ### Test Sample
 
-#### Request JWT Token
-To be able access the resources, you need JWT token. Retrieve the token via `tokens` endpoint.
+#### Request JSON Web Token
+To be able access the resources, you need JSON Web Token. Retrieve the token via `tokens` endpoint.
 
 ```
 curl -i \
@@ -30,7 +30,7 @@ http://[YOUR_HOST]:[YOUR_PORT]/apps/resources/tokens
 The token will provided on the Header Response when everything is ok.
 
 #### Request the Resources
-Having the JWT Token, put this on header request as `Authorization: Bearer [JWT Token]`
+Having the JSON Web Token, put this on header request as `Authorization: Bearer [JSON Web Token]`
 
 ```
 curl -i \
