@@ -23,7 +23,7 @@ curl -i \
 -H "Content-Type: application/json" \
 -H "Accept: application/json" \
 -X POST  \
--d '{"username": "username", "password": "passwowrd"}' \
+-d '{"username": "username", "password": "password"}' \
 http://[YOUR_HOST]:[YOUR_PORT]/apps/resources/tokens
 ```
 

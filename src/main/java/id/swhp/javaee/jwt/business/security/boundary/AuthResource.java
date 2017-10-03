@@ -1,8 +1,8 @@
 package id.swhp.javaee.jwt.business.security.boundary;
 
-import java.util.Arrays;
 import static javax.ws.rs.core.HttpHeaders.AUTHORIZATION;
 
+import java.util.Arrays;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.json.JsonObject;
