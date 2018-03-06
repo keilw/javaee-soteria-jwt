@@ -2,7 +2,9 @@ package id.swhp.javaee.jwt.business.security.boundary;
 
 import static javax.ws.rs.core.HttpHeaders.AUTHORIZATION;
 
+import java.text.MessageFormat;
 import java.util.Arrays;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.json.JsonObject;
@@ -13,11 +15,13 @@ import javax.ws.rs.core.Response;
 /**
  *
  * @author Sukma Wardana
+ * @author Werner Keil
  * @since 1.0
  */
 @Stateless
 @Path("tokens")
 public class AuthResource {
+    private final Logger logger = Logger.getLogger(getClass().getName());
 
     @Inject
     JWTStore jwtStore;
@@ -35,6 +39,7 @@ public class AuthResource {
 
         // TODO: Groups should retrieve from database based on authenticate user.
         String token = this.jwtStore.generateToken(username, Arrays.asList("ADMIN", "MEMBER"));
+        logger.fine( () -> MessageFormat.format("Token={0}", token));
 
         return Response.ok().header(AUTHORIZATION, "Bearer " + token).build();
     }
