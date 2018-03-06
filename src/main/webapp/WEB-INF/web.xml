@@ -26,7 +26,7 @@
             <url-pattern>/resources/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
-            <role-name>member</role-name>
+            <role-name>MEMBER</role-name>
         </auth-constraint>
     </security-constraint>
     

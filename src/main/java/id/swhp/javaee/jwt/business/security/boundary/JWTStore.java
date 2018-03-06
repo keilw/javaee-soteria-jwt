@@ -36,7 +36,7 @@ import net.minidev.json.JSONObject;
 public class JWTStore {
 
     private static final Instant CURRENT_TIME = Instant.now();
-    private static final Instant EXPIRED_TIME = CURRENT_TIME.plus(3, ChronoUnit.MINUTES);
+    private static final Instant EXPIRED_TIME = CURRENT_TIME.plus(3, ChronoUnit.DAYS);
 
     @Inject
     KeyGenerator keyGenerator;
@@ -50,7 +50,6 @@ public class JWTStore {
 
             // Prepare JWT with claims set
             JWTClaimsSet.Builder claimSet = new JWTClaimsSet.Builder();
-
             claimSet.issuer("swhp");
             claimSet.subject(username);
             claimSet.audience("JavaEE Soteria JWT"); // your application
@@ -83,11 +82,8 @@ public class JWTStore {
     public JWTCredential getCredential(String token) {
         try {
             String secretKey = this.keyGenerator.generateKey();
-
             SignedJWT signedJWT = SignedJWT.parse(token);
-
             JWTClaimsSet claimsSet = signedJWT.getJWTClaimsSet();
-
             JWSVerifier verifier = new MACVerifier(secretKey);
 
             if (!signedJWT.verify(verifier)) {
@@ -114,7 +110,6 @@ public class JWTStore {
 
     protected static boolean isTokenTimeValid(final Date creation, final Date expiration) {
         Date now = new Date();
-
         return creation.before(now) && now.before(expiration);
     }
 }
