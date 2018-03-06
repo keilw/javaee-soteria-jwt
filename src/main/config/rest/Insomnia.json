@@ -1,0 +1,130 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2018-03-06T15:04:29.828Z",
+	"__export_source": "insomnia.desktop.app:v5.14.9",
+	"resources": [
+		{
+			"_id": "wrk_935c64a9bd74434abbfd79d004197622",
+			"created": 1520348163990,
+			"description": "",
+			"modified": 1520348163990,
+			"name": "Insomnia",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_acf03b428a2449bca23ced2e98903752",
+			"color": null,
+			"created": 1520348164053,
+			"data": {},
+			"isPrivate": false,
+			"modified": 1520348164053,
+			"name": "New Environment",
+			"parentId": "wrk_935c64a9bd74434abbfd79d004197622",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_47a5ab8a261a486080b2a5930eda5a63",
+			"cookies": [],
+			"created": 1520348164142,
+			"modified": 1520348164142,
+			"name": "Default Jar",
+			"parentId": "wrk_935c64a9bd74434abbfd79d004197622",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "fld_c357bf4587684c60b757cc3bbb5caa0d",
+			"created": 1520348268779,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1520348268779,
+			"modified": 1520348268779,
+			"name": "JWT",
+			"parentId": "wrk_935c64a9bd74434abbfd79d004197622",
+			"_type": "request_group"
+		},
+		{
+			"_id": "env_c04fe5e06ca9439b8d9e35a4bd1f83e9",
+			"color": null,
+			"created": 1520348508541,
+			"data": {
+				"appContext": "localhost:8080/apps"
+			},
+			"isPrivate": false,
+			"modified": 1520348636933,
+			"name": "Local",
+			"parentId": "env_acf03b428a2449bca23ced2e98903752",
+			"_type": "environment"
+		},
+		{
+			"_id": "req_7ddf89ea245b4eb3b064ddcc320b644b",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\"username\": \"username\", \"password\": \"password\"}"
+			},
+			"created": 1520348280496,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_ad7d22851cce4199a4a99c49c6268d25",
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"id": "pair_67446689126d4abea5bc16a6d9a289eb",
+					"name": "Accept",
+					"value": "application/json"
+				}
+			],
+			"metaSortKey": -1520348280497,
+			"method": "POST",
+			"modified": 1520348600262,
+			"name": "Get Token",
+			"parameters": [],
+			"parentId": "fld_c357bf4587684c60b757cc3bbb5caa0d",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ appContext  }}/resources/tokens",
+			"_type": "request"
+		},
+		{
+			"_id": "req_b5a946b08ab84177a13a5556eb82dee2",
+			"authentication": {
+				"disabled": false,
+				"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImF1ZCI6IkphdmFFRSBTb3RlcmlhIEpXVCIsInJlYWxtX2FjY2VzcyI6eyJncm91cHMiOlsiQURNSU4iLCJNRU1CRVIiXX0sImlzcyI6InN3aHAiLCJleHAiOjE1MjA2MDYzOTcsImlhdCI6MTUyMDM0NzE5N30.4h_pelEYUwGI9rIJr0bG_xqNqlNj-Pj-e17NyalVkd8",
+				"type": "bearer"
+			},
+			"body": {},
+			"created": 1520348391559,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_e99e38193d47432b9dbb05c2203d4de5",
+					"name": "Accept",
+					"value": "application/json"
+				},
+				{
+					"id": "pair_c3549ef33f1d497c88e36487cfc3bd56",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"metaSortKey": -1520348391559,
+			"method": "GET",
+			"modified": 1520348592675,
+			"name": "Get Books",
+			"parameters": [],
+			"parentId": "fld_c357bf4587684c60b757cc3bbb5caa0d",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ appContext  }}/resources/books",
+			"_type": "request"
+		}
+	]
+}
