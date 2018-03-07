@@ -91,7 +91,7 @@ public class JWTStore {
             }
 
             if (!isTokenTimeValid(claimsSet.getIssueTime(), claimsSet.getExpirationTime())) {
-                // TODO: Give proper message to clinet / mapping the exception to be able show the message.
+                // TODO: Give proper message to caller / mapping the exception to be able show the message.
                 throw new SystemException("Expired Token");
             }
 
