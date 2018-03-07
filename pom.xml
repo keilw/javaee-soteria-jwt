@@ -49,13 +49,18 @@
         </dependency>
 <!--
         <dependency>
+            <groupId>org.eclipse.microprofile.jwt</groupId>
+            <artifactId>microprofile-jwt-auth-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>microprofile-jwt</artifactId>
             <version>2018.3.1</version>
         </dependency>
 -->
     </dependencies>
-    
+
     <build>
         <finalName>apps</finalName>
     </build>
