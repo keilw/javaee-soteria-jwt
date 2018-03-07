@@ -30,6 +30,7 @@ import net.minidev.json.JSONObject;
 /**
  *
  * @author Sukma Wardana
+ * @author Werner Keil
  * @since 1.0
  */
 @Stateless
