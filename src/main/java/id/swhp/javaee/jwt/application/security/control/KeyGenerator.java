@@ -1,6 +1,6 @@
-package id.swhp.javaee.jwt.business.security.control;
+package id.swhp.javaee.jwt.application.security.control;
 
-import id.swhp.javaee.jwt.business.exception.SystemException;
+import id.swhp.javaee.jwt.application.exception.SystemException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

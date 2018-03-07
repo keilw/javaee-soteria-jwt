@@ -1,4 +1,4 @@
-package id.swhp.javaee.jwt.business.security.boundary;
+package id.swhp.javaee.jwt.application.security.boundary;
 
 import static javax.ws.rs.core.HttpHeaders.AUTHORIZATION;
 

@@ -1,4 +1,4 @@
-package id.swhp.javaee.jwt.business.security.entity;
+package id.swhp.javaee.jwt.application.security.entity;
 
 import java.io.Serializable;
 import java.util.Collections;

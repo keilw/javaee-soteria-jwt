@@ -37,12 +37,6 @@
             <artifactId>nimbus-jose-jwt</artifactId>
             <version>5.1</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>microprofile-jwt</artifactId>
-            <version>2018.3.1</version>
-        </dependency>
         <dependency>
             <groupId>javax.json.bind</groupId>
             <artifactId>javax.json.bind-api</artifactId>
@@ -53,6 +47,13 @@
             <artifactId>yasson</artifactId>
             <version>1.0</version>
         </dependency>
+<!--
+        <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>microprofile-jwt</artifactId>
+            <version>2018.3.1</version>
+        </dependency>
+-->
     </dependencies>
     
     <build>

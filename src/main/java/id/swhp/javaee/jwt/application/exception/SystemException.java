@@ -1,11 +1,11 @@
-package id.swhp.javaee.jwt.business.exception;
+package id.swhp.javaee.jwt.application.exception;
 
 /**
  *
  * @author Sukma Wardana
  * @since 1.0
  */
-public class SystemException extends BusinessException {
+public class SystemException extends EnterpriseException {
 
     public SystemException() {
         super();

@@ -2,7 +2,7 @@ package id.swhp.javaee.jwt.application;
 
 import static javax.ws.rs.core.HttpHeaders.AUTHORIZATION;
 
-import id.swhp.javaee.jwt.business.security.boundary.JWTStore;
+import id.swhp.javaee.jwt.application.security.boundary.JWTStore;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.security.enterprise.AuthenticationException;
@@ -13,7 +13,6 @@ import javax.security.enterprise.credential.Credential;
 import javax.security.enterprise.identitystore.IdentityStore;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.text.MessageFormat;
 import java.util.logging.Logger;
 
 /**

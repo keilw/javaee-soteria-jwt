@@ -1,14 +1,12 @@
 package id.swhp.javaee.jwt.application;
 
-import id.swhp.javaee.jwt.business.security.entity.JWTCredential;
+import id.swhp.javaee.jwt.application.security.entity.JWTCredential;
 
-import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.ApplicationScoped;
 import javax.security.enterprise.credential.Credential;
 import javax.security.enterprise.identitystore.CredentialValidationResult;
 import javax.security.enterprise.identitystore.IdentityStore;
 import java.text.MessageFormat;
-import java.util.Arrays;
 import java.util.Set;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
