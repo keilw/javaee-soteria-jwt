@@ -1,4 +1,4 @@
-package id.swhp.javaee.jwt.application;
+package id.swhp.javaee.jwt.application.security.control;
 
 import id.swhp.javaee.jwt.application.security.entity.JWTCredential;
 
@@ -38,5 +38,4 @@ public class JWTIdentityStore implements IdentityStore {
                 .map(i -> i.toString())
                 .collect(Collectors.joining(", "));
     }
-
 }

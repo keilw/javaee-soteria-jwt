@@ -11,8 +11,9 @@ import javax.ws.rs.ext.ExceptionMapper;
  * List subclasses of {@link WebApplicationException} on:
  * http://docs.oracle.com/javaee/7/api/javax/ws/rs/class-use/WebApplicationException.html
  *
- * @see GlobalExceptionMapper
+ * @see JAXRSGlobalExceptionMapper
  * @author Sukma Wardana
+ * @author Werner Keil
  * @since 1.0
  */
 public class WebApplicationExceptionMapper implements ExceptionMapper<WebApplicationException> {
@@ -21,5 +22,4 @@ public class WebApplicationExceptionMapper implements ExceptionMapper<WebApplica
     public Response toResponse(WebApplicationException exception) {
         return Response.fromResponse(exception.getResponse()).build();
     }
-
 }

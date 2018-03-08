@@ -22,6 +22,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import net.minidev.json.JSONArray;
@@ -35,14 +36,16 @@ import net.minidev.json.JSONObject;
  */
 @Stateless
 public class JWTStore {
-
     private static final Instant CURRENT_TIME = Instant.now();
     private static final Instant EXPIRED_TIME = CURRENT_TIME.plus(3, ChronoUnit.DAYS);
+
+    private final Logger logger = Logger.getLogger(getClass().getName());
 
     @Inject
     KeyGenerator keyGenerator;
 
     public String generateToken(final String username, final List<String> groupNames) {
+        logger.info( () -> "Generating token...");
         try {
             String secretKey = this.keyGenerator.generateKey();
 
@@ -81,6 +84,7 @@ public class JWTStore {
     }
 
     public JWTCredential getCredential(String token) {
+        logger.info( () -> "Retrieving credential...");
         try {
             String secretKey = this.keyGenerator.generateKey();
             SignedJWT signedJWT = SignedJWT.parse(token);

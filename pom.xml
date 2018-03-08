@@ -58,6 +58,13 @@
             <artifactId>microprofile-jwt</artifactId>
             <version>2018.3.1</version>
         </dependency>
+
+
+        <dependency>
+            <groupId>com.kumuluz.ee.jwt</groupId>
+            <artifactId>kumuluzee-jwt-auth</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 -->
     </dependencies>
 

@@ -1,12 +1,14 @@
-package id.swhp.javaee.jwt.application;
+package id.swhp.javaee.jwt.application.security.control;
 
 import static javax.ws.rs.core.HttpHeaders.AUTHORIZATION;
 
 import id.swhp.javaee.jwt.application.security.boundary.JWTStore;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.security.enterprise.AuthenticationException;
 import javax.security.enterprise.AuthenticationStatus;
+import javax.security.enterprise.SecurityContext;
 import javax.security.enterprise.authentication.mechanism.http.HttpAuthenticationMechanism;
 import javax.security.enterprise.authentication.mechanism.http.HttpMessageContext;
 import javax.security.enterprise.credential.Credential;
@@ -33,12 +35,15 @@ public class JWTAuthenticationMechanism implements HttpAuthenticationMechanism {
     @Inject
     JWTStore jwtStore;
 
+
     @Override
     public AuthenticationStatus validateRequest(HttpServletRequest req, HttpServletResponse res, HttpMessageContext context) throws AuthenticationException {
-        logger.info( () -> "Validating");
+        logger.info( () -> "Validating...");
 
         String authorizationHeader = req.getHeader(AUTHORIZATION);
         Credential credential = null;
+
+        //JsonWebToken principal = securityContext.getCallerPrincipal();
 
         if (authorizationHeader != null && authorizationHeader.startsWith(BEARER)) {
             String token = authorizationHeader.substring(BEARER.length());
