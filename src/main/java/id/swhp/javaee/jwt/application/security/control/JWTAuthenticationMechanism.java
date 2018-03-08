@@ -2,6 +2,7 @@ package id.swhp.javaee.jwt.application.security.control;
 
 import static javax.ws.rs.core.HttpHeaders.AUTHORIZATION;
 
+import id.swhp.javaee.jwt.application.exception.EnterpriseException;
 import id.swhp.javaee.jwt.application.security.boundary.JWTStore;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -46,9 +47,13 @@ public class JWTAuthenticationMechanism implements HttpAuthenticationMechanism {
         //JsonWebToken principal = securityContext.getCallerPrincipal();
 
         if (authorizationHeader != null && authorizationHeader.startsWith(BEARER)) {
-            String token = authorizationHeader.substring(BEARER.length());
-
-            credential = this.jwtStore.getCredential(token);
+            try {
+                String token = authorizationHeader.substring(BEARER.length());
+                credential = this.jwtStore.getCredential(token);
+            } catch (EnterpriseException ee) {
+                logger.warning( () -> "Error: " + ee.getMessage());
+                throw new AuthenticationException(ee);
+            }
         }
 
         if (credential != null) {

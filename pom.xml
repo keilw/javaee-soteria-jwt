@@ -59,7 +59,6 @@
             <version>2018.3.1</version>
         </dependency>
 
-
         <dependency>
             <groupId>com.kumuluz.ee.jwt</groupId>
             <artifactId>kumuluzee-jwt-auth</artifactId>
