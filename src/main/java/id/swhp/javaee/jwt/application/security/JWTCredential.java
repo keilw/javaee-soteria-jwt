@@ -1,4 +1,4 @@
-package id.swhp.javaee.jwt.application.security.entity;
+package id.swhp.javaee.jwt.application.security;
 
 import java.io.Serializable;
 import java.util.Collections;
@@ -10,12 +10,13 @@ import javax.security.enterprise.credential.Credential;
 /**
  *
  * @author Sukma Wardana
+ * @author Werner Keil
  * @since 1.0
  */
 public class JWTCredential implements Credential {
 
-    private String caller;
-    private Set<String> groups;
+    private final String caller;
+    private final Set<String> groups;
     private Map<String, Serializable> info;
 
     public JWTCredential(String caller) {

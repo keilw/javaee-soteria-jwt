@@ -1,4 +1,4 @@
-package id.swhp.javaee.jwt.application.security.boundary;
+package id.swhp.javaee.jwt.business.security.boundary;
 
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWSAlgorithm;
@@ -11,8 +11,8 @@ import com.nimbusds.jose.crypto.MACVerifier;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
 import id.swhp.javaee.jwt.application.exception.SystemException;
-import id.swhp.javaee.jwt.application.security.control.KeyGenerator;
-import id.swhp.javaee.jwt.application.security.entity.JWTCredential;
+import id.swhp.javaee.jwt.business.security.control.KeyGenerator;
+import id.swhp.javaee.jwt.application.security.JWTCredential;
 import java.text.ParseException;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -54,7 +54,7 @@ public class JWTStore {
 
             // Prepare JWT with claims set
             JWTClaimsSet.Builder claimSet = new JWTClaimsSet.Builder();
-            claimSet.issuer("swhp");
+            claimSet.issuer("Foo");
             claimSet.subject(username);
             claimSet.audience("JavaEE Soteria JWT"); // your application
             claimSet.issueTime(Date.from(CURRENT_TIME));

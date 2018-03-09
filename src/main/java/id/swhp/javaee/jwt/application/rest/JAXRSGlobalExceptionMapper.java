@@ -1,4 +1,4 @@
-package id.swhp.javaee.jwt.application;
+package id.swhp.javaee.jwt.application.rest;
 
 import static javax.ws.rs.core.Response.Status.BAD_REQUEST;
 

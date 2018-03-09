@@ -1,4 +1,4 @@
-package id.swhp.javaee.jwt.application.security.boundary;
+package id.swhp.javaee.jwt.business.security.boundary;
 
 import static javax.ws.rs.core.HttpHeaders.AUTHORIZATION;
 
@@ -37,7 +37,7 @@ public class AuthResource {
         String username = credential.getString("username");
         String password = credential.getString("password");
 
-        // TODO: Groups should retrieve from database based on authenticate user.
+        // TODO: Groups should retrieve from database based on authenticate user. Use Soteria Role Mapping?
         String token = this.jwtStore.generateToken(username, Arrays.asList("ADMIN", "MEMBER"));
         logger.info( () -> MessageFormat.format("Token={0}", token));
 

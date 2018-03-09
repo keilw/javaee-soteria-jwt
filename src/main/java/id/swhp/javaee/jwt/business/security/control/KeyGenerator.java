@@ -1,4 +1,4 @@
-package id.swhp.javaee.jwt.application.security.control;
+package id.swhp.javaee.jwt.business.security.control;
 
 import id.swhp.javaee.jwt.application.exception.SystemException;
 import java.nio.charset.StandardCharsets;

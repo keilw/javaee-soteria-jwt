@@ -1,9 +1,9 @@
-package id.swhp.javaee.jwt.application.security.control;
+package id.swhp.javaee.jwt.application.security;
 
 import static javax.ws.rs.core.HttpHeaders.AUTHORIZATION;
 
 import id.swhp.javaee.jwt.application.exception.EnterpriseException;
-import id.swhp.javaee.jwt.application.security.boundary.JWTStore;
+import id.swhp.javaee.jwt.business.security.boundary.JWTStore;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

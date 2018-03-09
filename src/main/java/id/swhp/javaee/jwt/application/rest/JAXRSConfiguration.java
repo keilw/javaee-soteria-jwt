@@ -1,4 +1,4 @@
-package id.swhp.javaee.jwt.application;
+package id.swhp.javaee.jwt.application.rest;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

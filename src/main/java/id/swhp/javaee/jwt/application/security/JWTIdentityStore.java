@@ -1,6 +1,4 @@
-package id.swhp.javaee.jwt.application.security.control;
-
-import id.swhp.javaee.jwt.application.security.entity.JWTCredential;
+package id.swhp.javaee.jwt.application.security;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.security.enterprise.credential.Credential;
