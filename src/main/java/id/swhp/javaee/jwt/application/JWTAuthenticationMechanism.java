@@ -13,7 +13,6 @@ import javax.security.enterprise.credential.Credential;
 import javax.security.enterprise.identitystore.IdentityStore;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.text.MessageFormat;
 import java.util.logging.Logger;
 
 /**
