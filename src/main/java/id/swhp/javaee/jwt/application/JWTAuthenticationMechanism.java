@@ -49,7 +49,7 @@ public class JWTAuthenticationMechanism implements HttpAuthenticationMechanism {
         if (credential != null) {
             return context.notifyContainerAboutLogin(this.identityStore.validate(credential));
         } else {
-            return context.doNothing();
+            return context.responseUnauthorized();
         }
     }
 
