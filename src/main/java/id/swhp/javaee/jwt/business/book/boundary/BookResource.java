@@ -6,6 +6,8 @@ import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.Stateless;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
@@ -26,10 +28,11 @@ public class BookResource {
     private final Logger logger = Logger.getLogger(getClass().getName());
 
     @GET
-    public Response findAllBook() {
+    @RolesAllowed("ADMIN")
+    public Response findAllBooks() {
         Jsonb jsonb = JsonbBuilder.create();
 
-        String result = jsonb.toJson(getAllBook());
+        String result = jsonb.toJson(getAllBooks());
         logger.fine( () -> MessageFormat.format("Books: {0}", result));
         return Response.ok().entity(result).build();
     }
@@ -47,7 +50,7 @@ public class BookResource {
         return Response.ok().entity(result).build();
     }
 
-    protected List<Book> getAllBook() {
+    protected List<Book> getAllBooks() {
         return Arrays.asList(
                 new Book(1l, "Blody Marry", 2.30),
                 new Book(2l, "Haunted House", 2.0),
