@@ -4,8 +4,10 @@ import id.swhp.javaee.jwt.business.book.entity.Book;
 
 import java.text.MessageFormat;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.Stateless;
@@ -14,7 +16,9 @@ import javax.json.bind.JsonbBuilder;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
 
 /**
  *
@@ -29,10 +33,18 @@ public class BookResource {
 
     @GET
     @RolesAllowed("ADMIN")
-    public Response findAllBooks() {
+    public Response findAllBooks(@Context SecurityContext securityContext) {
+    	String caller;
+    	if (null != securityContext.getUserPrincipal()) {
+    		caller = securityContext.getUserPrincipal().getName();
+    		logger.info(caller);
+    	} else {
+    		caller = "";
+    	}
+    		
         Jsonb jsonb = JsonbBuilder.create();
 
-        String result = jsonb.toJson(getAllBooks());
+        String result = jsonb.toJson(getBooksWithPermission(getAllBooks(), caller)	);
         logger.fine( () -> MessageFormat.format("Books: {0}", result));
         return Response.ok().entity(result).build();
     }
@@ -56,5 +68,25 @@ public class BookResource {
                 new Book(2l, "Haunted House", 2.0),
                 new Book(3l, "Ghouls", 1.90)
         );
+    }
+    
+    protected List<Book> getBooksWithPermission(final List<Book> bookList, String caller) {
+		final long isbn = 1;
+		if ("username".equals(caller)) {
+			System.out.println("\nSearch objects having isbn "+ isbn);
+			List<Book> foundObjs = bookList.stream()
+									 .filter(book -> 
+									 book.getIsbn() == isbn )
+									 .collect(Collectors.toList());
+			if(null != foundObjs) {
+				foundObjs.forEach(System.out::println);
+				return foundObjs;
+			} else {
+				System.out.println("Could not found objects in list");
+				return Collections.emptyList();
+			}
+		} else {
+			return bookList;
+		}
     }
 }
